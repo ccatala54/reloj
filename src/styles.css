@@ -1,5 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
-/* styles.css */
+
 body {
   margin: 0;
   min-height: 100vh;
@@ -43,7 +43,7 @@ nav li a {
 }
 
 nav img {
-  width: 36px;  /* Tamaño reducido */
+  width: 36px; 
   height: 36px;
   object-fit: contain;
   transition: transform 0.3s ease;
@@ -90,6 +90,19 @@ main > section:target {
 #alarm, #stopwatch, #timer {
   font-size: 3rem;
 }
+audio:not([controls]) {
+  display: none;
+}
+
+[ringing] {
+  animation: pulse 1s infinite;
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
 
 
 
@@ -123,7 +136,6 @@ main > section:target {
   }
 }
 
-/* Tema oscuro */
 @media (prefers-color-scheme: dark) {
   body {
     background-color: rgb(15, 23, 42);

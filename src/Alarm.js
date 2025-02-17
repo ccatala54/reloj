@@ -6,7 +6,7 @@ export default class Alarm extends HTMLElement {
     super();
     this.addEventListener("click", this);
     this.duration = 60 * 1000;
-
+    
     this.alarmSound = document.getElementById("alarm-sound");
 
     this.#intervalCallback = () => {
@@ -23,7 +23,7 @@ export default class Alarm extends HTMLElement {
             if (this.alarmSound) {
               this.alarmSound.play();
             }
-            
+
             this.dispatchEvent(
               new CustomEvent("ring", { bubbles: true, detail: alarm })
             );
@@ -35,6 +35,7 @@ export default class Alarm extends HTMLElement {
       });
     };
   }
+
 
   get alarms() {
     return [...this.querySelector(".items").children];
