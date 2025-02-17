@@ -5,6 +5,10 @@ export default class Timer extends HTMLElement {
   constructor() {
     super();
     this.addEventListener("click", this);
+
+    this.timerSound = document.getElementById("timer-sound");
+
+
     this.#intervalCallback = () => {
       const time = this.querySelector("time");
       const inputs = this.querySelectorAll("input");
@@ -30,6 +34,11 @@ export default class Timer extends HTMLElement {
         clearInterval(this.#intervalId);
         this.#intervalId = 0;
         ms = 0;
+        
+        if (this.timerSound) {
+          this.timerSound.play();
+        }
+        
         inputs.forEach((input) => {
           input.classList.remove("current-interval");
         });
